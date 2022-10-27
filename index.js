@@ -10,17 +10,26 @@ const options = {
 
 const recipes = []
 
-function findRecipe(id) {
-    fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${id}`, options)
+const searchBtn = document.getElementById("searchBtn");
+let userInput = "";
+searchBtn.addEventListener("click", function() {
+    userInput = document.getElementById("searchText").value;
+});
+
+function findRecipe(ingredient) {
+
+    return new Promise((resolve, reject) => {
+        fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${ingredient}`, options)
 	    .then(response => response.json())
 	    .then(response => {
             for(const x of response) {
                 recipes.push(x.title)
-                console.log(recipes)
             }
+            resolve(recipes)
         })
-	    .catch(err => console.log(err));
-
+	    .catch(err => {reject(err)});
+    })
 }
 
-findRecipe("avocado")
+
+findRecipe(userInput).then(a => console.log(a))
