@@ -34,7 +34,16 @@ h2 {
     text-align: center;
 }
 
+<<<<<<< HEAD
 #searchBtn {
     color: fuchsia;
     width
+=======
+.image {
+    box-sizing: border-box;
+    width: 25%;
+    opacity: 0.8;
+    float: left;
+    padding: 5px;
+>>>>>>> e30e188e0cb1c2759e795b1ffb2d5ae3bb499e1a
 }
