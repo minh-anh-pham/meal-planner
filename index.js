@@ -18,8 +18,6 @@ searchBtn.addEventListener("click", function() {
     userInput = document.getElementById("searchText").value;
 
     findRecipe(userInput).then(result => {
-        //the result variable from above is an array with the recipes containg the ingredient specified in userInput
-        //add here what you want to do with the result (print it/display it)
         document.write(result)
     })
 });
