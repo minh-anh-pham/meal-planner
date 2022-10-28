@@ -51,7 +51,7 @@ form.addEventListener("submit", function(e) {
     })
 })
 
-// click on header to return to default
+// click on header to return to default & searchbar to clear
 const header = document.querySelector("#header");
 const searchContents = document.querySelector("#searchText")
 header.addEventListener("click", function(e) {
