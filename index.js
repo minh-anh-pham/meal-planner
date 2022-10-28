@@ -40,12 +40,13 @@ form.addEventListener("submit", function(e) {
 			newDiv.appendChild(addSummary);
 		    })
 
-			//called getInstructionsById and added instructions to the page
-			getInstructionsById(item.id).then( instructions => {
-			const addInstructions = document.createElement("p");
-			addInstructions.innerHTML += instructions;
-			newDiv.appendChild(addInstructions);
-			})
+		    //called getInstructionsById and added instructions to the page
+		    getInstructionsById(item.id).then( instructions => {
+		    	const addInstructions = document.createElement("p");
+			addInstructions.innerHTML += "<b> Instructions <b/>";
+		   	addInstructions.innerHTML += instructions;
+		   	newDiv.appendChild(addInstructions);
+		    })
 		}
     })
 })
@@ -62,11 +63,6 @@ function findRecipe(ingredient) {
         fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${ingredient}`, options)
 	    .then(response => response.json())
 	    .then(response => {
-	    /*
-            for(const x of response) {
-                recipes.push(x.title)
-            }
-	    */
             resolve(response)
         })
 	    .catch(err => {reject(err)});
