@@ -43,7 +43,7 @@ form.addEventListener("submit", function(e) {
 		    //called getInstructionsById and added instructions to the page
 		    getInstructionsById(item.id).then( instructions => {
 		    	const addInstructions = document.createElement("p");
-			addInstructions.innerHTML += "<b> Instructions <b/>";
+			addInstructions.innerHTML += "<b> Instructions <b/> <br>";
 		   	addInstructions.innerHTML += instructions;
 		   	newDiv.appendChild(addInstructions);
 		    })
