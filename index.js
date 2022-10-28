@@ -40,6 +40,13 @@ form.addEventListener("submit", function(e) {
 			addSummary.innerHTML += summary;
 			newDiv.appendChild(addSummary);
 		    })
+
+			//called getInstructionsById and added instructions to the page
+			getInstructionsById(item.id).then( instructions => {
+			const addInstructions = document.createElement("p");
+			addInstructions.innerHTML += instructions;
+			newDiv.appendChild(addInstructions);
+			})
 		}
     })
 })
@@ -71,6 +78,19 @@ function getSummaryById(id) {
 	    .then(response => response.json())
 	    .then(response => {
             resolve(response.summary)
+        })
+	    .catch(err => {reject(err)});
+    })
+}
+
+
+//created a function to get the instructions of a recipe using its ID
+function getInstructionsById(id) {
+	return new Promise((resolve, reject) => {
+        fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`, options)
+	    .then(response => response.json())
+	    .then(response => {
+            resolve(response.instructions)
         })
 	    .catch(err => {reject(err)});
     })
