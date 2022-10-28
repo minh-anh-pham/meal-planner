@@ -71,9 +71,10 @@ div {
     padding-left: 25px;
     padding-right: 25px;
     padding-bottom: 30px;
-    padding-top: 20px;
-    border: 3px solid white;
-    box-sizing: border-box;
+    padding-top: 10px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: rgba(245, 245, 220, 0.356);
 }
 
 h3 {

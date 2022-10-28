@@ -9,13 +9,13 @@ const options = {
 
 //const recipes = []
 let userInput = "";
+const resultsDiv = document.querySelector("#results");
 
 const form = document.querySelector("#searchbar");
 
 form.addEventListener("submit", function(e) {
 	e.preventDefault(); //e is the event,
 	userInput = document.getElementById("searchText").value;
-		const resultsDiv = document.querySelector("#results");
 		resultsDiv.innerHTML = ""
     	findRecipe(userInput).then(result => {
         	for (const item of result) {
