@@ -68,7 +68,11 @@ div {
 
 .recipeDiv {
     display: grid;
-    grid-template-columns: 25vw auto;
+    grid-template:
+    [header-left] "#h3" 30px [header-right]
+    [main-left] "#img" 1fr [main-right]
+    [footer-left] "#p" 30px [footer-right]
+    / 120px 1fr;
     font-size: 100%;
     font-family: serif;
     text-align: left;
@@ -79,8 +83,8 @@ div {
     margin-top: 5%;
     margin-bottom: 5%;
     background-color: rgba(245, 245, 220, 0.658);
-    width: 80%;
-    max-height: 8vw;
+    max-width: 80%;
+    max-height: 10vw;
     border-radius: 1.5vw;
 }
 
@@ -95,19 +99,19 @@ h3 {
 
 img {
     border-radius: 5px;
+    height: 14vw;
 }
 
 p {
     padding-left: 5%;
     padding-right: 5%;
     padding-bottom: 5%;
-
+    /* max-height: 9vw; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #header {
     cursor: pointer;
-}
-
-.image {
-    opacity: 0.5;
 }

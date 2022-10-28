@@ -19,7 +19,6 @@ form.addEventListener("submit", function(e) {
     	findRecipe(userInput).then(result => {
         	for (const item of result) {
 		    const newDiv = document.createElement("div");
-		    newDiv.classList.add("recipeDiv");
 		    resultsDiv.appendChild(newDiv);
 
 		    const addTitle = document.createElement("h3");
@@ -38,6 +37,8 @@ form.addEventListener("submit", function(e) {
 			const addSummary = document.createElement("p");
 			addSummary.innerHTML += summary;
 			newDiv.appendChild(addSummary);
+
+			newDiv.classList.add("recipeDiv");
 		    })
 
 		    //called getInstructionsById and added instructions to the page
