@@ -33,12 +33,6 @@ form.addEventListener("submit", function(e) {
 		    addImage.setAttribute("width", "100%");
 		    newDiv.appendChild(addImage);
 
-		    const addCuisine = document.createElement("p");
-		    const cuisineContent = document.createTextNode(`${item.cuisine}`);
-		    addCuisine.appendChild(cuisineContent);
-		    newDiv.appendChild(addCuisine);
-
-
 		    //called the newly created function(line 71) and added the summary to the page
 		    getSummaryById(item.id).then( summary => {
 			const addSummary = document.createElement("p");
