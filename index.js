@@ -37,6 +37,15 @@ form.addEventListener("submit", function(e) {
 		    const cuisineContent = document.createTextNode(`${item.cuisine}`);
 		    addCuisine.appendChild(cuisineContent);
 		    newDiv.appendChild(addCuisine);
+
+
+			//called the newly created function(line 71) and added the summary to the page
+			getSummaryById(item.id).then( summary => {
+				const addSummary = document.createElement("p");
+				const summaryContent = document.createTextNode(`${summary}`);
+				addSummary.appendChild(summaryContent);
+				newDiv.appendChild(addSummary);
+			})
 		}
     })
 })
@@ -53,6 +62,19 @@ function findRecipe(ingredient) {
             }
 	    */
             resolve(response)
+        })
+	    .catch(err => {reject(err)});
+    })
+}
+
+
+//created a function to get the summary of a recipe using its ID
+function getSummaryById(id) {
+	return new Promise((resolve, reject) => {
+        fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`, options)
+	    .then(response => response.json())
+	    .then(response => {
+            resolve(response.summary)
         })
 	    .catch(err => {reject(err)});
     })
