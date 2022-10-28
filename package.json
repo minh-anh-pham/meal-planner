@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "html-to-text": "^8.2.1",
     "isomorphic-fetch": "^3.0.0"
   }
 }
