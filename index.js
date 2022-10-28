@@ -7,7 +7,7 @@ const options = {
 	}
 };
 
-const recipes = []
+//const recipes = []
 let userInput = "";
 
 const form = document.querySelector("#searchbar")
@@ -15,8 +15,29 @@ const form = document.querySelector("#searchbar")
 form.addEventListener("submit", function(e) {
 	e.preventDefault(); //e is the event,
 	userInput = document.getElementById("searchText").value;
-    findRecipe(userInput).then(result => {
-        document.write(result)
+    	findRecipe(userInput).then(result => {
+        	for (const item of result) {
+		    const resultsDiv = document.querySelector("#results");
+		    const newDiv = document.createElement("div");
+		    newDiv.classList.add("recipeDiv");
+		    resultsDiv.appendChild(newDiv);
+
+		    const addTitle = document.createElement("h3");
+		    const titleContent = document.createTextNode(`${item.title}`);
+		    addTitle.appendChild(titleContent);
+		    newDiv.appendChild(addTitle);
+
+		    const addImage = document.createElement("img");
+		    addImage.setAttribute("src", `${item.image}`);
+		    addImage.setAttribute("alt", `${item.title}`);
+		    addImage.setAttribute("width", "100%");
+		    newDiv.appendChild(addImage);
+
+		    const addCuisine = document.createElement("p");
+		    const cuisineContent = document.createTextNode(`${item.cuisine}`);
+		    addCuisine.appendChild(cuisineContent);
+		    newDiv.appendChild(addCuisine);
+		}
     })
 })
 
@@ -26,10 +47,12 @@ function findRecipe(ingredient) {
         fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${ingredient}`, options)
 	    .then(response => response.json())
 	    .then(response => {
+	    /*
             for(const x of response) {
                 recipes.push(x.title)
             }
-            resolve(recipes)
+	    */
+            resolve(response)
         })
 	    .catch(err => {reject(err)});
     })
