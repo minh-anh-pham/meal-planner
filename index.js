@@ -51,9 +51,12 @@ form.addEventListener("submit", function(e) {
     })
 })
 
+// click on header to return to default
 const header = document.querySelector("#header");
+const searchContents = document.querySelector("#searchText")
 header.addEventListener("click", function(e) {
-	resultsDiv.innerHTML = ""
+	resultsDiv.innerHTML = null;
+	searchContents.value = null;
 })
 
 
