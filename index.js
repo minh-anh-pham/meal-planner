@@ -10,7 +10,6 @@ const options = {
 //const recipes = []
 let userInput = "";
 const resultsDiv = document.querySelector("#results");
-
 const form = document.querySelector("#searchbar");
 
 form.addEventListener("submit", function(e) {
@@ -51,6 +50,10 @@ form.addEventListener("submit", function(e) {
     })
 })
 
+const header = document.querySelector("#header");
+header.addEventListener("click", function(e) {
+	resultsDiv.innerHTML = ""
+})
 
 
 function findRecipe(ingredient) {
