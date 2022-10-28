@@ -10,7 +10,7 @@ const options = {
 //const recipes = []
 let userInput = "";
 
-const form = document.querySelector("#searchbar")
+const form = document.querySelector("#searchbar");
 
 form.addEventListener("submit", function(e) {
 	e.preventDefault(); //e is the event,
@@ -18,6 +18,7 @@ form.addEventListener("submit", function(e) {
     	findRecipe(userInput).then(result => {
         	for (const item of result) {
 		    const resultsDiv = document.querySelector("#results");
+			resultsDiv.innerHTML = ""
 		    const newDiv = document.createElement("div");
 		    newDiv.classList.add("recipeDiv");
 		    resultsDiv.appendChild(newDiv);
@@ -42,6 +43,8 @@ form.addEventListener("submit", function(e) {
 		}
     })
 })
+
+
 
 function findRecipe(ingredient) {
 
